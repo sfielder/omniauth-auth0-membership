@@ -8,6 +8,15 @@ class Auth0Controller < ApplicationController
     redirect_to '/dashboard'
   end
 
+  def logout
+     # example request.env['omniauth.auth'] in https://github.com/auth0/omniauth-auth0#auth-hash
+    # id_token = session[:userinfo]['credentials']['id_token']
+    # store the user profile in session and redirect to root
+    reset_session
+
+    redirect_to '/'
+  end
+
   def failure
     @error_msg = request.params['message']
   end

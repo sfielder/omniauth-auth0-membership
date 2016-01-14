@@ -3,7 +3,8 @@
 <head>
   <title>Auth0 Membership Rails App</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <%= yield :cdn_code %>
+  <!--<%= yield :cdn_code %> -->
+  <%= javascript_include_tag '//cdn.auth0.com/js/lock-7.11.min.js' %>
   <%= stylesheet_link_tag    '//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css' %>
   <%= stylesheet_link_tag    '//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css' %>
   <%= javascript_include_tag '//use.typekit.net/iws6ohy.js' %>
@@ -15,7 +16,26 @@
 </head>
 <body>
 
+<% if session[:userinfo] == nil %>
+  <a class="btn btn-primary btn-lg btn-login btn-block" onclick="signin()">SignIn</a>
+  <% else %>
+  <a class="btn btn-primary btn-lg btn-login btn-block" href="/logout">Sign Out</a>
+<% end %>
+<%= session[:userinfo] %>
 <%= yield %>
+
+<script type="text/javascript">
+var lock = new Auth0Lock('<%= Rails.application.secrets.auth0_client_id %>', '<%= Rails.application.secrets.auth0_domain %>');
+function signin() {
+	lock.show({
+	    callbackURL: '<%= Rails.application.secrets.auth0_callback_url %>', //'http://localhost:3000/auth/auth0/callback', // use this in production  '<%= Rails.application.secrets.auth0_callback_url %>'
+	    responseType: 'code',
+	    authParams: {
+	    	scope: 'openid name email picture'
+	  	}
+	});
+}
+</script>
 
 
 </body>
