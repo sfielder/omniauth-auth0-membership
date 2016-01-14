@@ -1,2 +1,4 @@
-<h1>Membership#show</h1>
-<p>Find me in app/views/membership/show.html.erb</p>
+<h1> <%= @membershipTier.name %> - Membership</h1>
+
+<img src="<%= @membershipTier.image__c %>" />
+<%=raw @membershipTier.description__c %>

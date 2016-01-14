@@ -1,2 +1,8 @@
-<h1>Membership#index</h1>
-<p>Find me in app/views/membership/index.html.erb</p>
+<h1>Membership</h1>
+
+<% @MembershipTiers.each do |t| %>
+
+  <h3><%= link_to t.name, membership_path(:id => t.id) %></h3>
+
+   <img src="<%= t.image__c %>" />
+<% end %>
