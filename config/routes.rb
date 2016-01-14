@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
 
-  get 'profile/show'
-
   resources :membership
+  resources :profile
+  resources :join
 
   get 'dashboard/show'
 
