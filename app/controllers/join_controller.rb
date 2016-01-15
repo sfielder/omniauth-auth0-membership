@@ -4,4 +4,13 @@ class JoinController < SecuredController
 
   def create
   end
+s
+  def new
+  end
+
+  def payment
+  end
+
+  def thanks
+  end
 end
