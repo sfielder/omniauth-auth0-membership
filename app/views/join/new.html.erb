@@ -1,1 +1,112 @@
-<h1>Join#new</h1>
+<div id="main-content" role="main" itemprop="mainContentOfPage">
+		  	<section>
+			<div id="page" class="container">
+				<div class="page-header">
+					<div class="row">
+						<div class="col-xs-12 col-md-12">
+							<h1 class="blue">Join AAA</h1>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-xs-12 col-md-12 sm-marB20">
+						<div class="panel panel-default">
+	  						<div class="panel-body">
+	  							<div class="col-xs-12 col-md-12 sm-marB20">
+									<div class="progress">
+										<div class="progress-bar progress-bar-striped" role="progressbar" aria-valuenow="33" aria-valuemin="0" aria-valuemax="100" style="width: 33%;">
+										Membership Plans
+										</div>
+									</div>
+								</div>
+								<div class="col-xs-12 col-md-12 sm-marB20">
+									<form id="join_aaa">
+										<fieldset>
+
+											<% @MembershipTiers.each_with_index do |t, index| %>
+
+												<div class="radio">
+													<label>
+														<input type="radio" name="joinList" id="joinList_1" value="mail">
+														<div class="row sm-marB20">
+															<div class="col-xs-12 col-md-2 xs-marB20">
+																<img src="<%= t.image__c %>">
+															</div>
+															<div class="col-xs-12 col-md-4">
+																<span class="planname blue"><%= t.name %> Membership</span>
+																<div class="row">
+																	<div class="col-xs-8 col-md-8">
+																		<p>1st Member:</p>
+																	</div>
+																	<div class="col-xs-4 col-md-4">
+																		<p>$<%= number_with_precision(t.first_member__c, :precision => 0, :delimiter => ',') %></p>
+																	</div>
+																</div>
+																<div class="row">
+																	<div class="col-xs-8 col-md-8">
+																		<p>1st Additional Member:</p>
+																	</div>
+																	<div class="col-xs-4 col-md-4 red">
+																		<p>1st Year FREE</p>
+																	</div>
+																</div>
+																<div class="row">
+																	<div class="col-xs-8 col-md-8">
+																		<p>Each Additional Member:</p>
+																	</div>
+																	<div class="col-xs-4 col-md-4">
+																		<p>$<%= number_with_precision(t.first_additional_member__c, :precision => 0, :delimiter => ',') %></p>
+																	</div>
+																</div>
+															</div>
+															<div class="col-xs-12 col-md-6">
+																<div class="panel row<%= index %>">
+																<% @MembershipBenefits.each do |b| 
+																	if b.membermgmt__membership_tier__c == t.sfid
+																	%>
+
+																	<p><strong><%= b.name %></strong> - <%= b.membermgmt__description__c %></p>
+
+																<% 	end
+																	end %><!--
+																	<p><strong>Tire Change</strong> - Change flat tire with an inflated spare</p>
+											                        <p><strong>Battery Boost</strong> - Provided in attempt to start vehicle</p>
+											                        <p><strong>Towing Service</strong> - Up to 5 miles of free towing</p>
+											                        <p><strong>Fuel Delivery</strong> - Actual pump price of gas is charged</p>
+											                        <p><strong>Lockout Service</strong> - No charge for services up to $50</p>-->
+											                    </div>
+															</div>
+														</div>
+													</label>
+												</div>
+
+											<% end %>
+
+											<hr>
+											<div class="row">
+												<div class="col-xs-12 col-md-6">
+													<a class="btn btn-default grayBGdark" href="/join">Back</a>
+												</div>
+												<div class="col-xs-12 col-md-6 txt-right">
+													<a class="btn btn-default" href="/join/show">Continue</a>
+												</div>
+										</fieldset>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		</div> <!-- /main -->
+
+		<script>
+        	$(document).ready(function() {
+        		$( ".row0" ).addClass( "highlightBlue" );
+        		$( ".row1" ).addClass( "highlightGold" );
+        		$( ".row2" ).addClass( "highlightGray" );
+
+
+        	});
+  		</script>

@@ -1,2 +1,254 @@
-<h1>Join#create</h1>
-<p>Find me in app/views/join/create.html.erb</p>
+<div id="main-content" role="main" itemprop="mainContentOfPage">
+		  	<section>
+			<div id="page" class="container">
+				<div class="page-header">
+					<div class="row">
+						<div class="col-xs-12 col-md-12">
+							<h1 class="blue">Join AAA</h1>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-xs-12 col-md-12 sm-marB20">
+						<div class="panel panel-default">
+	  						<div class="panel-body">
+	  							<div class="row">
+		  							<div class="col-xs-12 col-md-12 sm-marB20">
+										<div class="progress">
+											<div class="progress-bar progress-bar-striped" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%;">
+											Payment
+											</div>
+										</div>
+									</div>
+									<div class="col-xs-12 col-md-12 sm-marB20">
+										<form id="join_aaa" class="form-horizontal">
+											<fieldset>
+												<div class="row">
+													<div class="col-xs-12 col-md-8">
+														<h3>Payment Type</h3>
+														<hr>
+														<div class="radio">
+															<label>
+															<input type="radio" name="optionsRadios" id="optionsCredit" value="credit">
+															Credit Card
+															</label>
+														</div>
+														<div class="radio">
+															<label>
+															<input type="radio" name="optionsRadios" id="optionsCheck" value="check">
+															Online Check
+															</label>
+														</div>
+														<br>
+														<h3>Payment Options</h3>
+														<hr>
+														<div class="radio">
+															<label>
+																<input type="radio" name="optionsRadios" id="optionsPay1" value="66-2free">
+															Pay <strong>$66.00</strong> - Give me <strong>2 free extra month(s)</strong> on my first year membership and automatically bill my credit card next year.
+															</label>
+														</div>
+														<div class="radio">
+															<label>
+																<input type="radio" name="optionsRadios" id="optionsPay2" value="66-no-2free">
+															Pay <strong>$66.00</strong> - Do not give me 2 free months and send me a bill next year.
+															</label>
+														</div>
+														<div class="radio">
+															<label>
+																<input type="radio" name="optionsRadios" id="optionsPay3" value="15-ezpay">
+															Pay <strong>$15.00</strong>(incl. non-refundable fee of $5.00) - I will make <strong>3 monthly EZPay Plan payments of $18.67</strong> starting on <strong>2/14/2016</strong>.
+															</label>
+														</div>
+														<br>
+														<h3>Credit Card Information</h3>
+														<hr>
+														<div class="sm-marB20">
+															<label class="radio-inline"><input type="radio" name="cardType" id="credit_1" value="visa"> Visa</label>
+															<label class="radio-inline"><input type="radio" name="cardType" id="credit_1" value="mastercard"> Mastercard</label>
+															<label class="radio-inline"><input type="radio" name="cardType" id="credit_1" value="discover"> Discover</label>
+															<label class="radio-inline"><input type="radio" name="cardType" id="credit_1" value="ammex"> American Express</label>
+														</div>
+														<div class="form-group">
+															<label for="ccNumber" class="col-sm-2 control-label">Credit Card Number</label>
+															<div class="col-sm-8">
+																<input type="number" class="form-control" id="ccNumber" required>
+															</div>
+														</div>
+														<div class="form-group">
+															<label for="ccExp" class="col-sm-2 control-label">Expiration Date (mm/yy)</label>
+															<div class="col-sm-8">
+																<input type="number" class="form-control" id="ccExp" required placeholder="01/18">
+															</div>
+														</div>
+														<br>
+														<h3>Credit Card Billing Address</h3>
+														<p>Enter the billing address for the credit card that you are using.</p>
+														<hr>
+														<div class="form-group">
+															<label for="firstname" class="col-sm-2 control-label">First Name</label>
+															<div class="col-sm-8">
+																<input type="txt" class="form-control" id="firstname" required>
+															</div>
+														</div>
+														<div class="form-group">
+															<label for="mi" class="col-sm-2 control-label">MI</label>
+															<div class="col-sm-2">
+																<input type="txt" class="form-control" id="mi">
+															</div>
+														</div>
+														<div class="form-group">
+															<label for="lastname" class="col-sm-2 control-label">Last Name</label>
+															<div class="col-sm-8">
+																<input type="txt" class="form-control" id="lastname" required>
+															</div>
+														</div>
+														<div class="form-group">
+															<label for="streetAddress" class="col-sm-2 control-label">Street Address</label>
+															<div class="col-sm-8">
+																<input type="txt" class="form-control" id="streetAddress" required>
+															</div>
+														</div>
+														<div class="form-group">
+															<label for="aptUnit" class="col-sm-2 control-label">Apt/Unit #</label>
+															<div class="col-sm-8">
+																<input type="txt" class="form-control" id="aptUnit">
+															</div>
+														</div>
+														<div class="form-group">
+															<label for="city" class="col-sm-2 control-label">City</label>
+															<div class="col-sm-8">
+																<input type="txt" class="form-control" id="city" required>
+															</div>
+														</div>
+														<div class="form-group">
+															<label for="state" class="col-sm-2 control-label">State</label>
+															<div class="col-sm-2">
+																<select class="form-control" id="state">
+																	<option value="AK">ALASKA</option>
+																	<option value="AL">ALABAMA</option>
+																	<option value="AZ">ARIZONA</option>
+																	<option value="AR">ARKANSAS</option>
+																	<option value="CA">CALIFORNIA</option>
+																	<option value="CO">COLORADO</option>
+																	<option value="CT">CONNECTICUT</option>
+																	<option value="DC">DISTRICT OF COLUMBIA</option>
+																	<option value="DE">DELAWARE</option>
+																	<option selected="selected" value="FL">FLORIDA</option>
+																	<option value="GA">GEORGIA</option>
+																	<option value="HI">HAWAII</option>
+																	<option value="IA">IOWA</option>
+																	<option value="ID">IDAHO</option>
+																	<option value="IL">ILLINOIS</option>
+																	<option value="IN">INDIANA</option>
+																	<option value="KS">KANSAS</option>
+																	<option value="KY">KENTUCKY</option>
+																	<option value="LA">LOUISIANA</option>
+																	<option value="MD">MARYLAND</option>
+																	<option value="ME">MAINE</option>
+																	<option value="MA">MASSACHUSETTS</option>
+																	<option value="MI">MICHIGAN</option>
+																	<option value="MN">MINNESOTA</option>
+																	<option value="MO">MISSOURI</option>
+																	<option value="MS">MISSISSIPPI</option>
+																	<option value="MT">MONTANA</option>
+																	<option value="NC">NORTH CAROLINA</option>
+																	<option value="ND">NORTH DAKOTA</option>
+																	<option value="NE">NEBRASKA</option>
+																	<option value="NH">NEW HAMPSHIRE</option>
+																	<option value="NJ">NEW JERSEY</option>
+																	<option value="NM">NEW MEXICO</option>
+																	<option value="NY">NEW YORK</option>
+																	<option value="NV">NEVADA</option>
+																	<option value="OH">OHIO</option>
+																	<option value="OK">OKLAHOMA</option>
+																	<option value="OR">OREGON</option>
+																	<option value="PA">PENNSYLVANIA</option>
+																	<option value="PR">PUERTO RICO</option>
+																	<option value="RI">RHODE ISLAND</option>
+																	<option value="SC">SOUTH CAROLINA</option>
+																	<option value="SD">SOUTH DAKOTA</option>
+																	<option value="TN">TENNESSEE</option>
+																	<option value="TX">TEXAS</option>
+																	<option value="UT">UTAH</option>
+																	<option value="VI">US VIRGIN ISLANDS</option>
+																	<option value="VA">VIRGINIA</option>
+																	<option value="VT">VERMONT</option>
+																	<option value="WA">WASHINGTON</option>
+																	<option value="WI">WISCONSIN</option>
+																	<option value="WV">WEST VIRGINIA</option>
+																	<option value="WY">WYOMING</option>
+																</select>
+															</div>
+														</div>
+														<div class="form-group">
+															<label for="zip" class="col-sm-2 control-label">Zip Code</label>
+															<div class="col-sm-8">
+																<input type="text" class="form-control" id="zip" required>
+															</div>
+														</div>
+														<hr>
+														<span class="help"><i class="indicator"></i><a href=""> = denotes required field</a></span>
+													</div>
+													<div class="col-xs-12 col-md-4">
+														<h3>Selected Membership</h3>
+														<hr>
+														<img class="formCard" src="<%= @MembershipTier.image__c %>">
+														<h4>AAA <%= @MembershipTier.name %></h4>
+														<div class="row">
+																<div class="col-xs-8 col-md-8">
+																	<p>1st Member:</p>
+																</div>
+																<div class="col-xs-4 col-md-4">
+																	<p>$<%= number_with_precision(@MembershipTier.first_member__c, :precision => 0, :delimiter => ',') %></p>
+																</div>
+															</div>
+															<div class="row">
+																<div class="col-xs-8 col-md-8">
+																	<p>1st Additional Member:</p>
+																</div>
+																<div class="col-xs-4 col-md-4 red">
+																	<p>1st Year FREE</p>
+																</div>
+															</div>
+															<div class="row">
+																<div class="col-xs-8 col-md-8">
+																	<p>Each Additional Member:</p>
+																</div>
+																<div class="col-xs-4 col-md-4">
+																	<p>$<%= number_with_precision(@MembershipTier.first_additional_member__c, :precision => 0, :delimiter => ',') %></p>
+																</div>
+															</div>
+													</div>
+												</div>
+												<div class="row">
+													<div class="col-xs-12 col-md-12">
+														<hr>
+													</div>
+												</div>
+												<div class="row">
+													<div class="col-xs-12 col-md-6">
+														<a class="btn btn-default grayBGdark" href="join-member-info.html">Back</a>
+													</div>
+													<div class="col-xs-12 col-md-6 txt-right">
+														<a class="btn btn-default" href="#">Submit Payment</a>
+													</div>
+												</div>
+												<div class="row">
+													<div class="col-xs-12 col-md-12">
+													<hr>
+														<p>Please click the "Submit Payment" button only once. Your request may take a few moments to process...</p>
+														<p>The data you send to AAA on this form is encrypted through Secure Socket Layer (SSL) technology to ensure that your information remains confidential.</p>
+													</div>
+												</div>
+											</fieldset>
+										</form>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		</div> <!-- /main -->

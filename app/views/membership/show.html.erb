@@ -1,4 +1,229 @@
-<h1> <%= @membershipTier.name %> - Membership</h1>
+<div id="main-content" role="main" itemprop="mainContentOfPage">
+		  	<section>
+			<div id="page" class="container">
+				<div class="page-header">
+					<div class="row">
+						<div class="col-xs-12 col-md-3">
+							<img class="xs-marB20" src="<%= @membershipTier.image__c %>">
+						</div>
+						<div class="col-xs-12 col-md-8">
+							<h1 class="blue"><%= @membershipTier.name %> Membership <a href="join-qa.html" class="btn btn-primary">Join AAA</a></h1>
+							<p class="lead"><%=raw @membershipTier.description__c %></p>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-xs-12 col-md-12 sm-marB20">
+						<ul class="pills">
+							<% @membershipBenefits.each do |b| %>
+							<li><%= b.membermgmt__description__c %></li>
+							<% end %>
+						</ul>
+					</div>
+				</div>
+				<div class="row">
+					<div class="panel highlight">
+						<blockquote>You're a part of the 52 million members who enjoy the safety, security and peace of mind of AAA membership.</blockquote>
+					</div>
+				</div>
+			</div>
+		</section>
 
-<img src="<%= @membershipTier.image__c %>" />
-<%=raw @membershipTier.description__c %>
+
+		<section class="grayBG">
+			<div class="container">
+				<div class="row">
+					<div class="col-xs-12 col-md-12 sm-marB20">
+						<h2>Compare Membership Benefits <small><button id="show-benefits" class="toggle">Click to expand</button></small></h2>
+						<div id="benefits" style="display:none;">
+							<table border="0" class="footable table table-hover">
+								<thead>
+								    <tr>
+										<th>Benefits</th>
+										<th data-hide="phone,tablet" class="header-classic">Classic®</th>
+										<th data-hide="phone,tablet" class="header-plus">Plus®</th>
+										<th data-hide="phone,tablet" class="header-prem">Premier®</th>
+								    </tr>
+							    </thead>
+							    <tbody>
+								    <tr>
+								        <td>Towing*</td>
+					                    <td class="lt-gray">Up to four (4) 5-mi. Tows</td>
+										<td class="wht-smoke">Up to four (4) 100-mi. Tows</td>
+										<td class="lt-gray">One (1) 200-mi. Tow; Up to three (3) 100-mi. Tows</td>
+									</tr>
+									<tr>
+										<td>Emergency Starting</td>
+										<td class="lt-gray">Yes</td>
+										<td class="wht-smoke">Yes</td>
+										<td class="lt-gray">Yes</td>
+									</tr>
+									<tr>
+										<td>Battery Service</td>
+										<td class="lt-gray">Yes</td>
+										<td class="wht-smoke">Yes</td>
+										<td class="lt-gray">Yes</td>
+					                </tr>
+									<tr>
+										<td>Flat Tire Service</td>
+										<td class="lt-gray">Yes</td>
+										<td class="wht-smoke">Yes</td>
+										<td class="lt-gray">Yes</td>
+									</tr>
+									<tr>
+										<td>Fuel Delivery</td>
+										<td class="lt-gray">You Pay for Fuel</td>
+										<td class="wht-smoke">Yes, Free</td>
+										<td class="lt-gray">Yes, Free</td>
+									</tr>
+									<tr>
+										<td>Vehicle Locksmith Service</td>
+										<td class="lt-gray">Up to $50 for Lockout Only</td>
+										<td class="wht-smoke">Up to $100**</td>
+										
+					                    <td class="lt-gray">Up to $150**</td>
+					                    
+									</tr>
+									<tr>
+										<td>Extrication/Winching</td>
+										<td class="lt-gray">1 Service Vehicle<br>and 1 Driver</td>
+										<td class="wht-smoke">2 Service Vehicles<br>and 2 Drivers</td>
+										<td class="lt-gray">2 Service Vehicles<br>and 2 Drivers</td>
+									</tr>
+									<tr>
+										<td>Car Travel Interruption</td>
+										<td class="lt-gray">Up to $600</td>
+										<td class="wht-smoke">Up to $1,000</td>
+										<td class="lt-gray">Up to $1,500</td>
+									</tr>
+									<tr>
+										<td>Vehicle Theft Reward</td>
+										<td class="lt-gray">$1,000</td>
+										<td class="wht-smoke">$2,000</td>
+										<td class="lt-gray">$2,000</td>
+									</tr>
+									<tr>
+										<td>Emergency Check Cashing</td>
+										<td class="lt-gray">Yes</td>
+										<td class="wht-smoke">Yes</td>
+										<td class="lt-gray">Yes</td>
+									</tr>
+									<tr>
+										<td>Hertz Gold Plus Rewards Membership</td>
+										<td class="lt-gray">FREE + 675 Points, <b>after</b> the first Gold rental = 1 Free Day</td>
+										<td class="wht-smoke">FREE + 675 Points, <b>after</b> the first Gold rental = 1 Free Day</td>
+										<td class="lt-gray">FREE + 1,100 Points, <b>after</b> the first Gold rental = 2 Free Weekend Days</td>
+									</tr>
+									<tr>
+										<td>TripTiks, Maps and TourBooks</td>
+										<td class="lt-gray">Yes</td>
+										<td class="wht-smoke">Yes</td>
+										<td class="lt-gray">Yes</td>
+									</tr>
+									<tr>
+										<td>Passport Photos</td>
+										<td class="lt-gray">Nominal Fee</td>
+										<td class="wht-smoke">2 Sets Free Per Member Per Year</td>
+										<td class="lt-gray">Unlimited Sets Free Per Member Per Year</td>
+									</tr>
+									<tr>
+										<td>Legal Service Fee Reimbursement</td>
+										<td class="lt-gray"><b>Manslaughter</b><br>$500<br><b>Reckless Driving</b><br>$250<br><b>Minor Traffic Violations</b><br>$100</td>
+										<td class="wht-smoke"><b>Manslaughter</b><br>$1,500<br><b>Reckless Driving</b><br>$500<br><b>Minor Traffic Violations</b><br>$200</td>
+										<td class="lt-gray"><b>Manslaughter</b><br>$1,500<br><b>Reckless Driving</b><br>$500<br><b>Minor Traffic Violations</b><br>$200</td>
+									</tr>
+					                <tr>
+										<td>Personal Accident Insurance/Medical Rider</td>
+										<td class="lt-gray">Free, Medical Rider Optional Add'l Coverage</td>
+										<td class="wht-smoke">Free, Medical Rider Optional Add'l Coverage</td>
+										<td class="lt-gray">Free, Medical Rider Optional Add'l Coverage</td>
+									</tr>
+									<tr>
+										<td>Travel Accident Insurance for AAA Travel</td>
+										<td class="lt-gray">Yes, $100,000</td>
+										<td class="wht-smoke">Yes, $300,000</td>
+										<td class="lt-gray">Yes, $500,000</td>
+									</tr>
+									<tr>
+										<td>Vehicle Return</td>
+										<td class="lt-gray">N/A</td>
+										<td class="wht-smoke">N/A</td>
+										<td class="lt-gray">Yes, up to $500</td>
+									</tr>
+									<tr>
+										<td>Home Lockout Service</td>
+										<td class="lt-gray">N/A</td>
+										<td class="wht-smoke">N/A</td>
+										<td class="lt-gray">Yes, up to $100</td>
+									</tr>
+									<tr>
+										<td>24-Hour Concierge Service</td>
+										<td class="lt-gray">N/A</td>
+										<td class="wht-smoke">N/A</td>
+										<td class="lt-gray">Yes</td>
+									</tr>
+									<tr>
+										<td>24-Hour Emergency and Medical Services</td>
+										<td class="lt-gray">N/A</td>
+										<td class="wht-smoke">N/A</td>
+										<td class="lt-gray">Yes</td>
+									</tr>
+									<tr>
+										<td>One-Day Free Car Rental (with qualifying tow)</td>
+										<td class="lt-gray">N/A</td>
+										<td class="wht-smoke">N/A</td>
+										<td class="lt-gray">Yes</td>
+									</tr>
+									
+					                <tr height="35">
+										<td>Toll-Free Number for Dedicated Service</td>
+										<td class="lt-gray">N/A</td>
+										<td class="wht-smoke">N/A</td>
+										<td class="lt-gray">Yes</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section>
+			<div class="container">
+				<div class="row">
+					<div class="col-xs-12 col-md-12">
+						<h2>Additional Benefits &amp; Offers </h2>
+						<p>There's more to membership than we can even list. Explore AAA.com or visit your local AAA office to take advantage of everything your AAA membership offers.</p>
+					</div>
+					<ul class="pills">
+						<li>Free Maps, Triptiks® and TourBooks</li>
+                        <li>Free Notary, Fax and Copy Service</li>
+                        <li>Free Insurance Policy Review and Quotes</li>
+                        <li>Free Emergency Check Cashing</li>
+                        <li>Free Hertz Gold Plus Rewards Membership + 675 Points, <b>after</b> the first Gold rental</li>
+                        <li>Save on Attraction and Movie Tickets</li>
+						<li>Save on Hotels and Rental Cars</li>
+						<li>Save on Dining and Entertainment</li>
+						<li>Save on Travel, Cruises and shore excursions</li>
+						<li>And much more!</li>
+					</ul>
+				</div>
+			</div>
+		</section>
+
+</div>
+
+<script>
+		jQuery(document).ready(function($){
+			$('#show-benefits').on('click', function(){
+				$('#benefits').slideToggle(300);
+			});
+
+			$('.footable').footable({
+				breakpoints: {
+			        phone: 480,
+			        tablet: 992
+			    }
+			});
+		});
+	</script>
