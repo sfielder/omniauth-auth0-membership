@@ -1,28 +1,60 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Auth0 Membership Rails App</title>
+  <link rel="icon" href="/images/favicon.ico">
+  <title>AAA</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!--<%= yield :cdn_code %> -->
   <%= javascript_include_tag '//cdn.auth0.com/js/lock-7.11.min.js' %>
-  <%= stylesheet_link_tag    '//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css' %>
+  <%= stylesheet_link_tag    '//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css' %>
   <%= stylesheet_link_tag    '//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css' %>
   <%= javascript_include_tag '//use.typekit.net/iws6ohy.js' %>
   <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  
   <%= csrf_meta_tags %>
-</head>
-<body>
 
-<% if session[:userinfo] == nil %>
-  <a class="btn btn-primary btn-lg btn-login btn-block" onclick="signin()">SignIn</a>
-  <% else %>
-  <a class="btn btn-primary btn-lg btn-login btn-block" href="/logout">Sign Out</a>
-<% end %>
-<%= session[:userinfo] %>
-<%= yield %>
+  
+  <link href="/css/global.css" rel="stylesheet">
+  <link href="/css/yamm.css" rel="stylesheet">
+  <link href="//fonts.googleapis.com/css?family=Oswald:400|Source+Sans+Pro:400,400italic,600,600italic,700,700italic" rel="stylesheet" type="text/css">
+
+  <script src="/js/modernizr.custom.92256.js"></script>
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+  <script src="/js/ie10-viewport-bug-workaround.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js"></script>
+
+
+
+</head>
+<body role="document" itemscope="" itemtype="http://schema.org/WebPage">
+
+  <div class="wrapper">
+
+  <%= render "shared/headernav" %>
+
+  <%= yield %>
+
+  <%= render "shared/footernav" %>
+
+  </div>
+
+<script type="text/javascript">
+      $(function() {
+        $(document).on('click', '.yamm .dropdown-menu', function(e) {
+          e.stopPropagation()
+        })
+      })
+    </script>
+  <script>
+    $(function() {
+        FastClick.attach(document.body);
+    });
+  </script>
+
 
 <script type="text/javascript">
 var lock = new Auth0Lock('<%= Rails.application.secrets.auth0_client_id %>', '<%= Rails.application.secrets.auth0_domain %>');
@@ -40,3 +72,12 @@ function signin() {
 
 </body>
 </html>
+
+<!--
+<% if session[:userinfo] == nil %>
+  <a class="btn btn-primary btn-lg btn-login btn-block" onclick="signin()">SignIn</a>
+  <% else %>
+  <a class="btn btn-primary btn-lg btn-login btn-block" href="/logout">Sign Out</a>
+<% end %>
+<%= session[:userinfo] %>
+-->
