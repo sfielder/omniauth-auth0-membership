@@ -20,17 +20,18 @@
 									</div>
 								</div>
 								<div class="col-xs-12 col-md-12 sm-marB20">
-									<form id="join_aaa">
+									<%= form_tag(:id => 'join_aaa',controller: "join", action: "create", method: "post") do %>
 										<fieldset>
 
 											<% @MembershipTiers.each_with_index do |t, index| %>
 
 												<div class="radio">
 													<label>
-														<input type="radio" name="joinList" id="joinList_1" value="mail">
+														<%= radio_button_tag(:tier, t.id) %>
+
 														<div class="row sm-marB20">
 															<div class="col-xs-12 col-md-2 xs-marB20">
-																<img src="<%= t.image__c %>">
+																<img src="<%= t.membermgmt__image__c %>">
 															</div>
 															<div class="col-xs-12 col-md-4">
 																<span class="planname blue"><%= t.name %> Membership</span>
@@ -39,7 +40,7 @@
 																		<p>1st Member:</p>
 																	</div>
 																	<div class="col-xs-4 col-md-4">
-																		<p>$<%= number_with_precision(t.first_member__c, :precision => 0, :delimiter => ',') %></p>
+																		<p>$<%= number_with_precision(t.membermgmt__first_member__c, :precision => 0, :delimiter => ',') %></p>
 																	</div>
 																</div>
 																<div class="row">
@@ -47,7 +48,7 @@
 																		<p>1st Additional Member:</p>
 																	</div>
 																	<div class="col-xs-4 col-md-4 red">
-																		<p>1st Year FREE</p>
+																		<p>First Year $<%= number_with_precision(t.membermgmt__first_additional_member__c, :precision => 0, :delimiter => ',') %></p>
 																	</div>
 																</div>
 																<div class="row">
@@ -55,20 +56,19 @@
 																		<p>Each Additional Member:</p>
 																	</div>
 																	<div class="col-xs-4 col-md-4">
-																		<p>$<%= number_with_precision(t.first_additional_member__c, :precision => 0, :delimiter => ',') %></p>
+																		<p>$<%= number_with_precision(t.membermgmt__each_additional_member__c, :precision => 0, :delimiter => ',') %></p>
 																	</div>
 																</div>
 															</div>
 															<div class="col-xs-12 col-md-6">
 																<div class="panel row<%= index %>">
-																<% @MembershipBenefits.each do |b| 
-																	if b.membermgmt__membership_tier__c == t.sfid
-																	%>
+																<% @MembershipBenefits.each do |b| %>
+
+																<% if b.membermgmt__membership_tier__c == t.sfid %>
 
 																	<p><strong><%= b.name %></strong> - <%= b.membermgmt__description__c %></p>
-
-																<% 	end
-																	end %><!--
+																	<% 	end %>
+																<% 	end %><!--
 																	<p><strong>Tire Change</strong> - Change flat tire with an inflated spare</p>
 											                        <p><strong>Battery Boost</strong> - Provided in attempt to start vehicle</p>
 											                        <p><strong>Towing Service</strong> - Up to 5 miles of free towing</p>
@@ -85,13 +85,13 @@
 											<hr>
 											<div class="row">
 												<div class="col-xs-12 col-md-6">
-													<a class="btn btn-default grayBGdark" href="/join">Back</a>
+													<%= link_to "Back", :back,  :class => "btn btn-default grayBGdark"%>
 												</div>
 												<div class="col-xs-12 col-md-6 txt-right">
-													<a class="btn btn-default" href="/join/show">Continue</a>
+													<%= submit_tag("Continue", :class => "btn btn-default") %>
 												</div>
 										</fieldset>
-									</form>
+									<% end %>
 								</div>
 							</div>
 						</div>

@@ -1,3 +1,3 @@
 class Membership < ActiveRecord::Base
-  self.table_name = "salesforce.membership__c"
+  self.table_name = "salesforce.membermgmt__membership__c"
 end

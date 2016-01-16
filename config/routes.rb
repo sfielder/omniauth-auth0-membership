@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   resources :membership
   resources :profile
-  resources :join, only: [:new, :show, :thanks]
+  resources :join, only: [:new, :show, :thanks, :create]
 
   get 'dashboard/show'
 

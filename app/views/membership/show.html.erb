@@ -4,11 +4,11 @@
 				<div class="page-header">
 					<div class="row">
 						<div class="col-xs-12 col-md-3">
-							<img class="xs-marB20" src="<%= @membershipTier.image__c %>">
+							<img class="xs-marB20" src="<%= @membershipTier.membermgmt__image__c %>">
 						</div>
 						<div class="col-xs-12 col-md-8">
-							<h1 class="blue"><%= @membershipTier.name %> Membership <a href="join-qa.html" class="btn btn-primary">Join AAA</a></h1>
-							<p class="lead"><%=raw @membershipTier.description__c %></p>
+							<h1 class="blue"><%= @membershipTier.name %> Membership <a href="/join?tier=<%= @membershipTier.id %>" class="btn btn-primary">Join AAA</a></h1>
+							<p class="lead"><%=raw @membershipTier.membermgmt__description__c %></p>
 						</div>
 					</div>
 				</div>
@@ -80,9 +80,9 @@
 										<td>Vehicle Locksmith Service</td>
 										<td class="lt-gray">Up to $50 for Lockout Only</td>
 										<td class="wht-smoke">Up to $100**</td>
-										
+
 					                    <td class="lt-gray">Up to $150**</td>
-					                    
+
 									</tr>
 									<tr>
 										<td>Extrication/Winching</td>
@@ -174,7 +174,7 @@
 										<td class="wht-smoke">N/A</td>
 										<td class="lt-gray">Yes</td>
 									</tr>
-									
+
 					                <tr height="35">
 										<td>Toll-Free Number for Dedicated Service</td>
 										<td class="lt-gray">N/A</td>
@@ -196,16 +196,11 @@
 						<p>There's more to membership than we can even list. Explore AAA.com or visit your local AAA office to take advantage of everything your AAA membership offers.</p>
 					</div>
 					<ul class="pills">
-						<li>Free Maps, Triptiks® and TourBooks</li>
-                        <li>Free Notary, Fax and Copy Service</li>
-                        <li>Free Insurance Policy Review and Quotes</li>
-                        <li>Free Emergency Check Cashing</li>
-                        <li>Free Hertz Gold Plus Rewards Membership + 675 Points, <b>after</b> the first Gold rental</li>
-                        <li>Save on Attraction and Movie Tickets</li>
-						<li>Save on Hotels and Rental Cars</li>
-						<li>Save on Dining and Entertainment</li>
-						<li>Save on Travel, Cruises and shore excursions</li>
-						<li>And much more!</li>
+
+						<% @addlMembershipBenefits.each do |b| %>
+						<li><%= b.membermgmt__description__c %></li>
+						<% end %>
+
 					</ul>
 				</div>
 			</div>

@@ -2,13 +2,23 @@
 			<div class="container">
 				<div class="row">
 						<div id="logo" class="col-xs-12 col-sm-6 col-md-6" itemscope="" itemtype="http://schema.org/Organization">
-						<a href="#"><img src="/images/aaa-logo.png" width="145"></a>
+						<a href="/"><img src="/images/aaa-logo.png" width="145"></a>
 					</div>
 					<div class="col-xs-12 col-sm-6 col-md-6 txt-right xs-centered">
 						<ul id="utility-navigation" class="list-inline">
-							<li><a href="#">Sign in</a></li>
+							<% if session[:userinfo] != nil %>
+							<li><a href="/dashboard">My Profile</a></li>
+							<% end %>
+
+							<li>
+								<% if session[:userinfo] == nil %>
+								<a onclick="signin()">Sign In</a>
+								<% else %>
+								<a href="/logout">Sign Out</a>
+								<% end %>
+							</li>
 							<li><a href="#">Contact Us</a></li>
-							<li><a class="btn btn-primary round" href="/join">Join AAA</a></li>
+							<li><a class="btn btn-primary round" href="/join/new">Join AAA</a></li>
 						</ul><!-- end .container -->
 						<img src="/images/search.png" width="196" alt="search">
 					</div>
@@ -36,9 +46,9 @@
 																<div class="col-sm-4 list-unstyled">
 																	<ul>
 																		<li><p><strong>Membership Levels</strong></p></li>
-																		<li><a href="/membership/1">Classic</a></li>
-																		<li><a href="/membership/2">Plus</a></li>
-																		<li><a href="/membership/3">Premier</a></li>
+																			<% @membershipTiers.each do |t| %>
+																			<li><a href="/membership/<%= t.id %>"><%= t.name %></a></li>
+																		<% end %>
 																	</ul>
 																</div>
 																<div class="col-sm-4 list-unstyled">
@@ -58,7 +68,7 @@
 																	</ul>
 																</div>
 															</div>
-														</div>		
+														</div>
 													</li>
 												</ul>
 											</li>
