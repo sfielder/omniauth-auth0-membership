@@ -2,7 +2,10 @@ Rails.application.routes.draw do
 
   resources :membership
   resources :profile
-  resources :join, only: [:new, :show, :thanks, :create]
+  resources :join, only: [:index, :new, :show, :thanks, :create]
+  get "/thanks" => "join#thanks"
+  get "/payment" => "join#payment"
+
 
   get 'dashboard/show'
 
@@ -16,9 +19,7 @@ Rails.application.routes.draw do
   get "/auth/auth0/callback" => "auth0#callback"
   get "/auth/failure" => "auth0#failure"
 
-  get "/join" => "join#index"
-  get "/join/new" => "join#new"
-  get "/join/show" => "join#show"
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

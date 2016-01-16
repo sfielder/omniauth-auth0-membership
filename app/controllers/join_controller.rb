@@ -20,6 +20,7 @@ class JoinController < ApplicationController
   end
 
   def payment
+     @MembershipTier = MembershipTier.find(params[:tier])
   end
 
   def thanks
