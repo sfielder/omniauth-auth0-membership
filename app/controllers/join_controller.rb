@@ -10,20 +10,30 @@ class JoinController < ApplicationController
 
   def createMembership
 
+    #create the account
     @account = Account.new
     @account.name = params[:firstname] + ' ' + params[:lastname]
     @account.externalid__c = SecureRandom.uuid
     @account.shippingstreet = params[:streetAddress]
     @account.shippingcity = params[:city]
     @account.shippingstate = params[:state]
+    @account.save
 
+    #create the contact
     @contact = Contact.new
+    @contact.externalid__c = SecureRandom.uuid
     @contact.account_externalid__c = @account.externalid__c
     @contact.firstname = params[:firstname]
     @contact.lastname = params[:lastname]
     @contact.email = params[:email]
     @contact.phone = params[:phone]
+    @contact.save
 
+    #create a Membership
+    @membership = Membership.new
+    @membership.membermgmt__member_externalid__c
+    @membership.membermgmt__membership_tier__c = MembershipTier.find(params[:tier])
+    @membership.membermgmt__payment_status__c = 'Pending'
 
 
     redirect_to action: 'payment', tier: params[:tier]
