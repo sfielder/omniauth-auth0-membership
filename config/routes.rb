@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :join, only: [:index, :new, :show, :thanks, :create]
   get "/thanks" => "join#thanks"
   get "/payment" => "join#payment"
+  post "/createMembership" => "join#createMembership"
 
 
   get 'dashboard/show'
