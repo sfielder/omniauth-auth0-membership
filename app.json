@@ -1,0 +1,21 @@
+{
+  "name": "Membership Portal",
+  "description": "Membership example app.",
+  "website": "http://trifinlabs.com",
+  "success_url": "/",
+  "addons": ["heroku-postgresql:hobby-dev", "papertrail", "auth0:dev", "herokuconnect:demo"],
+  "env": {
+    "RAILS_ENV": "production",
+    "COOKIE_SECRET": {
+            "description": "This gets generated",
+            "generator": "secret"
+    },
+    "SETUP_BY": {
+            "description": "Who initiated this setup",
+            "value": ""
+    }
+  },
+  "scripts": {
+    "postdeploy": ""
+  }
+}
