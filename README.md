@@ -36,3 +36,20 @@ heroku config:pull --overwrite
 #Configure Heroku Connect Mapping
 
 Once you have installed the app, the final step is to configure Heroku Connect.
+
+To import the Heroku Connect mapping, please f
+
+````bash
+If you want to synchronize data from a new production or a refreshed sandbox organization you will need to:
+Export your current configuration to a JSON file.
+
+Navigate to the Settings tab, choose Import/Export Configuration, click the Export button and then on the confirmation page click Export to download the file.
+
+Remove and re-provision the Heroku Connect add-on authenticating to the new Salesforce organization.
+
+Import the JSON configuration file.
+
+Navigate to the Settings tab, choose Import/Export Configuration, click the Import button and then click Choose file to locate the file to upload. Click the Upload button to begin the import.
+
+On successful completion of the import Heroku Connect will begin syncing data from your new Salesforce organization into the database.
+````
