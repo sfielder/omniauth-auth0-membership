@@ -37,7 +37,7 @@ heroku config:pull --overwrite
 
 Once you have installed the app, the final step is to configure Heroku Connect.
 
-To import the Heroku Connect mapping, please f
+To import the Heroku Connect mapping, please follow the below:
 
 ````bash
 If you want to synchronize data from a new production or a refreshed sandbox organization you will need to:
