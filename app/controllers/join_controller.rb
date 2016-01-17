@@ -13,7 +13,7 @@ class JoinController < ApplicationController
     #create the account
     @account = Account.new
     @account.name = params[:firstname] + ' ' + params[:lastname]
-    @account.externalid__c = SecureRandom.uuid
+    @account.membermgmt__externalid__c = SecureRandom.uuid
     @account.shippingstreet = params[:streetAddress]
     @account.shippingcity = params[:city]
     @account.shippingstate = params[:state]
@@ -21,8 +21,8 @@ class JoinController < ApplicationController
 
     #create the contact
     @contact = Contact.new
-    @contact.externalid__c = SecureRandom.uuid
-    @contact.account_externalid__c = @account.externalid__c
+    #@contact.membermgmt__externalid__c = SecureRandom.uuid
+    @contact.account__membermgmt__externalid__c = @account.membermgmt__externalid__c
     @contact.firstname = params[:firstname]
     @contact.lastname = params[:lastname]
     @contact.email = params[:email]
@@ -31,10 +31,10 @@ class JoinController < ApplicationController
 
     #create a Membership
     @membership = Membership.new
-    @membership.membermgmt__member_externalid__c
-    @membership.membermgmt__membership_tier__c = MembershipTier.find(params[:tier])
+    @membership.membermgmt__member__r__membermgmt__externalid__c = @account.membermgmt__externalid__c
+    @membership.membermgmt__membership_tier__c = MembershipTier.find(params[:tier]).sfid
     @membership.membermgmt__payment_status__c = 'Pending'
-
+    @membership.save
 
     redirect_to action: 'payment', tier: params[:tier]
   end
@@ -53,7 +53,7 @@ class JoinController < ApplicationController
 
   def payment
      @MembershipTier = MembershipTier.find(params[:tier])
-     redirect_to action: 'thanks', tier: params[:tier]
+     #redirect_to action: 'thanks', tier: params[:tier]
   end
 
   def thanks
