@@ -14,8 +14,5 @@
             "description": "Who initiated this setup",
             "value": ""
     }
-  },
-  "scripts": {
-    "postdeploy": ""
   }
 }
