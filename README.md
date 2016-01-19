@@ -7,7 +7,7 @@ This example is deployed at Heroku at https://aaa-membership-carolinas.herokuapp
 Prior to installing the app on Heroku, sign up for a Salesforce developer account at https://developer.salesforce.com/
 
 Once you have logged into your Salesforce Developer org, install the following Appexchange Package:
-https://login.salesforce.com/packaging/installPackage.apexp?p0=04t360000009Uga
+https://login.salesforce.com/packaging/installPackage.apexp?p0=04t360000009Ugf
 
 #Install the App via the Heroku Button
 
